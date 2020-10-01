@@ -10,6 +10,12 @@
     #backg{
         background-color: #fae7b6;
     }
+    .aboutBtn{
+        padding: 5px;
+        outline: none;
+        width: fit-content;
+        margin-left: 10px;
+    }
 </style>
 <div id='backg'><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <div class="date">
@@ -17,7 +23,7 @@
 </div>
 <div class="home">
     <div class="bor">
-        <h1>Password Generator</h1>
+        <h1 id="heading"></h1>
         <form action="password">
             <select name="length" id="passwordlengh" required>
                 <option value="default">Select length of password</option>
@@ -46,7 +52,21 @@
 
 </div>
 <hr>
-<button>
+<button class="aboutBtn">
     <a href="{% url 'about' %}">About This Website</a>
 </button>
 </div>
+
+<script>
+    let i=0;
+    let head='Password Generator !!!!'
+    function typewriter(){
+        if(i<head.length){
+            heading.innerHTML+=head[i];
+            i++;
+            setTimeout(typewriter,100)
+        }
+    }
+
+    typewriter()
+</script>
